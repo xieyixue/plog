@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-table.css">
+    <title></title>
+</head>
+<body>
+<table data-toggle="table" data-url="/api/get_urlcount/" data-height="1000" data-page-size="50"
+       data-page-list="[50, 100, 200, 500, 1000]"data-pagination="true"
+       data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" >
+   <thead>
+        <tr>
+            <th data-field="url">Url</th>
+            <th data-field="count" data-sortable="true" >count</th>
+            
+        </tr>
+    </thead>
+</table>
+
+</body>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/bootstrap-table.js"></script>
+<script src="/static/js/bootstrap-table-zh-CN.js"></script>
+</html>
