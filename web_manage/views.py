@@ -35,9 +35,13 @@ def  get_ipcount(request,*args):
     else:
         return render_to_response("ip_count_table.html",{"day":"2015-10-16"})
 def base(request):
-
-    datas=["2015-10-16","2015-10-17","2015-10-18","2015-10-19","2015-10-20",]
-    return render_to_response("base.html",{"datas":datas})
+    datas = models.UrlCount.objects.filter(url="/").values("date")
+    print datas
+    d = []
+    for data in datas:
+        d.append(data["date"])
+    #datas=["2015-10-16","2015-10-17","2015-10-18","2015-10-19","2015-10-20",]
+    return render_to_response("base.html",{"datas":d})
 
 def char(request):
     data = []
