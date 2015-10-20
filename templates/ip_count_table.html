@@ -1,25 +1,30 @@
 
 {% extends "layout.html" %}
 
-{% block urltable %}
+{% block iptable %}
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/bootstrap-table.css">
 
 
 
-    <table data-toggle="table" data-url="/api/get_urlcount/{{ day }}" data-height="1000" data-page-size="50"
+    <div>
+        <p>date <input id="date" type="text" name="date" value="2015-10-16" /></p>
+        <input type="submit" value="ses" onclick="redate()"/>
+    </div>
+    <div id="table" >asdas
+    <table data-toggle="table" data-url="/api/get_ipcount/{{ day }}" data-height="1000" data-page-size="50"
            data-page-list="[50, 100, 200, 500, 1000]"data-pagination="true"
            data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" >
        <thead>
             <tr>
-                <th data-field="url">Url</th>
+                <th data-field="ip">ip</th>
                 <th data-field="count" data-sortable="true" >count</th>
 
             </tr>
         </thead>
     </table>
 
-
+    </div>
 
 {% endblock %}
 
@@ -31,4 +36,14 @@
     <script src="/static/js/bootstrap.js"></script>
     <script src="/static/js/bootstrap-table.js"></script>
     <script src="/static/js/bootstrap-table-zh-CN.js"></script>
+
+    <script language="JavaScript">
+        function redate(){
+            var date=$("#date").val();
+            console.log(date);
+            var olddate=$("table").attr("data-url");
+            console.log(olddate);
+        }
+
+    </script>
 {% endblock %}

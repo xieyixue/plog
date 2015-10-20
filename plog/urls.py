@@ -16,10 +16,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from web_manage import views
-from web_api.views import get_urlcount
+from web_api.views import post_urlcount,post_ipcount
+from web_api.views import get_urlcount,get_ipcount
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^insent_log/',views.insent_log),
     url(r'^manage/get_urlcount/',views.get_urlcount),
-    url(r'^api/get_urlcount/',get_urlcount),
+    url(r'^manage/get_ipcount/',views.get_ipcount),
+    url(r'^manage/base/',views.base),
+    url(r'^api/get_urlcount/(.+)/$',get_urlcount),
+    url(r'^api/get_ipcount/(.+)/$',get_ipcount),
+    url(r'^api/post_urlcount/',post_urlcount),
+    url(r'^api/post_ipcount/',post_ipcount),
 ]

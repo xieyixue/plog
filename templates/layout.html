@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="/manage/get_urlcount/">URL计数</a>
+				</li>
+				<li >
+					<a href="/manage/get_ipcount/">IP计数</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span8">
+            {% block urltable %}
+            {% endblock %}
+		</div>
+		<div class="span4">
+
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+            {% block iptable %}
+            {% endblock %}
+		</div>
+	</div>
+</div>
+
+</body>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    {% block js %}
+    {% endblock %}
+</html>
