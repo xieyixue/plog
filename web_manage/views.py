@@ -40,4 +40,10 @@ def base(request):
     return render_to_response("base.html",{"datas":datas})
 
 def char(request):
-    return render_to_response("char.html")
+    data = []
+    a = {"time":"01","count":12333}
+    b = {"time":"02","count":5764}
+    data.append(a)
+    data.append(b)
+    #data = {"i":1}
+    return render_to_response("char.html",{"data":data})

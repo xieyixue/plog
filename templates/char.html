@@ -12,7 +12,11 @@
 </body>
 <script>
 var data = [
-		{name : '01',value : 7,color:'#a5c2d5'},
+    {% for i in data %}
+
+
+		{name : '{{ i.time }}',value : {{ i.count }},color:'#a5c2d5'},
+    {% endfor %}
 	   	{name : '02',value : 5,color:'#cbab4f'},
 	   	{name : '03',value : 12,color:'#76a871'},
 	   	{name : '04',value : 12,color:'#76a871'},
@@ -36,8 +40,8 @@ var data = [
 				scale:[{//配置自定义值轴
 					 position:'left',//配置左值轴
 					 start_scale:0,//设置开始刻度为0
-					 end_scale:26,//设置结束刻度为26
-					 scale_space:2,//设置刻度间距
+					 end_scale:10000,//设置结束刻度为26
+					 scale_space:1000,//设置刻度间距
 					 listeners:{//配置事件
 						parseText:function(t,x,y){//设置解析值轴文本
 							return {text:t+" 次"}
