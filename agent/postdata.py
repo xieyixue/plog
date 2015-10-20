@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import urllib
 import urllib2
-def urlpost(data):
+import sys
+def urlpost(data,type):
     data = urllib.urlencode(data)
-    req = urllib2.urlopen("http://192.168.15.109:8000/api/post_urlcount/",data)
+    req = urllib2.urlopen("http://192.168.15.109:8000/api/post_{0}count/".format(type),data)
     print req.read()
 
 
@@ -40,8 +41,10 @@ def get_ipcount(logfile):
 if __name__ == "__main__":
     logfile = "access_2015-10-16.log"
     date = "2015-10-16"
-
+    logfile = sys.argv[1]
+    date = sys.argv[2]
+    type = sys.argv[3]
     #d = get_urlcount(logfile)
     d = get_ipcount(logfile)
     data={"data":d,"date":date}
-    urlpost(data)
+    urlpost(data,type)

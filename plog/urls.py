@@ -21,9 +21,17 @@ from web_api.views import get_urlcount,get_ipcount
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^insent_log/',views.insent_log),
-    url(r'^manage/get_urlcount/',views.get_urlcount),
-    url(r'^manage/get_ipcount/',views.get_ipcount),
+
+    url(r'^$',views.base),
+    url(r'^char',views.char),
+
+    url(r'^manage/get_urlcount/(.+)/$',views.get_urlcount),
+    #url(r'^manage/get_urlcount/$',views.get_urlcount),
+
+    url(r'^manage/get_ipcount/(.+)/$',views.get_ipcount),
+    #url(r'^manage/get_ipcount/$',views.get_urlcount),
     url(r'^manage/base/',views.base),
+
     url(r'^api/get_urlcount/(.+)/$',get_urlcount),
     url(r'^api/get_ipcount/(.+)/$',get_ipcount),
     url(r'^api/post_urlcount/',post_urlcount),

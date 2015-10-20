@@ -20,10 +20,24 @@ def insent_log(request):
     for url in d:
         count = d[url]
         models.UrlCount.objects.create(url=url,count=count,date=date)
-def  get_urlcount(request):
-    return render_to_response("url_count_table.html",{"day":"2015-10-16"})
-def  get_ipcount(request):
-    return render_to_response("ip_count_table.html",{"day":"2015-10-16"})
+def  get_urlcount(request,*args):
+    if args != "":
+        print args[0]
+        data = args[0]
+        return render_to_response("url_count_table.html",{"day":data})
+    else:
+        return render_to_response("url_count_table.html",{"day":"2015-10-16"})
+def  get_ipcount(request,*args):
+    if args != "":
+        print args[0]
+        data = args[0]
+        return render_to_response("ip_count_table.html",{"day":data})
+    else:
+        return render_to_response("ip_count_table.html",{"day":"2015-10-16"})
 def base(request):
 
-    return render_to_response("base.html")
+    datas=["2015-10-16","2015-10-17","2015-10-18","2015-10-19","2015-10-20",]
+    return render_to_response("base.html",{"datas":datas})
+
+def char(request):
+    return render_to_response("char.html")
