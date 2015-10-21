@@ -1,15 +1,12 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="/static/js/ichart.1.2.1.beta.20140329.min.js"></script>
-</head>
-<body>
-<div id='canvasDiv'></div>
+{% extends "layout.html" %}
 
-</body>
+
+{% block table %}
+<div id='canvasDiv'></div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/ichart.1.2.1.beta.20140329.min.js"></script>
 <script>
 var data = [
     {% for i in data %}
@@ -49,4 +46,4 @@ var data = [
 	//Html代码
 
 </script>
-</html>
+{% endblock %}

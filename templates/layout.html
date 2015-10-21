@@ -4,40 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/jikexuyeuan.css">
+    <link rel="stylesheet" href="/static/css/Wp.css">
+    <link rel="stylesheet" href="/static/css/layout.css">
+    {% block css %}
+    {% endblock %}
 
 </head>
 <body>
+
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
-			<ul class="nav nav-tabs">
-				<li class="active">
-					<a href="/manage/base/">首页</a>
-				</li>
-
-
-			</ul>
+            <div class="ue-bar">
+                <div class="ue-bar-warp">
+                    <div class="ue-bar-logo">
+                        <a href="#">
+                            <img src="/static/css/img/logo.jpg" width="100" alt="xxx" title="xxx">
+                        </a>
+                    </div>
+                    <div class="ue-bar-nav">
+                        <ul>
+                            <li class="active"><a href="/">
+                                <em>首页</em>
+                            </a></li>
+                            <li><a href="#">
+                                <em>xxx</em>
+                            </a></li>
+                            <li><a href="#">
+                                <em>xxx答</em>
+                            </a></li>
+                            <li><a href="#">
+                                <em>xxx</em>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
-	<div class="row-fluid">
-		<div class="span8">
-            {% block urltable %}
-            {% endblock %}
-		</div>
-		<div class="span4">
 
+	<div class="row-fluid">
+		<div class="span4">
+            <div class="adminMenuWarp">
+                <ul class="adminmenu">
+                    <li class="menu"><a href="#">文章</a></li>
+                    <li class="menu"><a href="#">多媒体</a></li>
+                    <li class="menu"><a href="#">页面</a></li>
+                    <li class="menu"><a href="#">评论</a></li>
+                    <li class="menu"><a href="#">外观</a></li>
+                    <li class="menu"><a href="#">插件</a></li>
+                    <li class="menu"><a href="#">用户</a></li>
+                </ul>
+            </div>
+
+		</div>
+		<div class="span8">
+            {% block table %}
+            {% endblock %}
 		</div>
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
-            {% block iptable %}
-            {% endblock %}
+
 		</div>
 	</div>
 </div>
 
 </body>
+
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
     {% block js %}

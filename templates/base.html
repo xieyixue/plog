@@ -1,13 +1,10 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
+{% extends "layout.html" %}
 
-</head>
-<body>
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+    {% endblock %}
+
+{% block table %}
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
@@ -18,7 +15,7 @@
 		<div class="span4">
             {% for i in datas %}
 
-                <div> <a href="/manage/get_urlcount/{{ i }}/">{{ i }} URL计数</a></div>
+                <div> <a href="/manage/get_urlcount/{{ i }}/">{{ i }} 日URL访问量</a></div>
 
             {% endfor %}
 
@@ -27,7 +24,7 @@
                {% for i in datas %}
 
 
-               <div> <a href="/manage/get_ipcount/{{ i }}/">{{ i }} IP计数</a> </div>
+               <div> <a href="/manage/get_ipcount/{{ i }}/">{{ i }} 日IP访问量</a> </div>
             {% endfor %}
 
 		</div>
@@ -35,15 +32,15 @@
 	<div class="row-fluid">
 		<div class="span12">
             {% for i in datas %}
-                <div> <a href="/manage/char/{{ i }}/">{{ i }}每小时PV图</a></div>
+                <div> <a href="/manage/char/{{ i }}/">{{ i }}日每小时PV图</a></div>
             {% endfor %}
 		</div>
 	</div>
 </div>
+{% endblock %}
 
-</body>
+    {% block js %}
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
-    {% block js %}
+
     {% endblock %}
-</html>

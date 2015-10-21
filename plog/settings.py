@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "plog",
-        'USERNAME':"xyx",
+        'USER':"xyx",
         'PASSWORD': "123123",
-        'HOSTNAME': "192.168.15.109",
+        'HOST': "192.168.15.109",
     }
 }
 

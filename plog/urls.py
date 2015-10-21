@@ -23,7 +23,8 @@ urlpatterns = [
 
     url(r'^$',views.base),
 
-    url('^manage/',include("web_manage.urls")),
     url('^api/',include("web_api.urls")),
+    url('^manage/',include("web_manage.urls")),
+
 
 ]

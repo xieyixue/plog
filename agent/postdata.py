@@ -72,6 +72,6 @@ if __name__ == "__main__":
 
     pvfordaydate=get_pvforday()
 
-    #urlpost(ipdata,"ipcount")
-    #urlpost(urldata,"urlcount")
+    urlpost(ipdata,"ipcount")
+    urlpost(urldata,"urlcount")
     urlpost(pvfordaydate,"pvforday")
