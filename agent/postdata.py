@@ -43,8 +43,11 @@ if __name__ == "__main__":
     date = "2015-10-16"
     logfile = sys.argv[1]
     date = sys.argv[2]
-    type = sys.argv[3]
-    #d = get_urlcount(logfile)
-    d = get_ipcount(logfile)
-    data={"data":d,"date":date}
-    urlpost(data,type)
+    #type = sys.argv[3]
+    urlcounts = get_urlcount(logfile)
+    ipcounts = get_ipcount(logfile)
+
+    ipdata={"data":ipcounts,"date":date}
+    urldata={"data":urlcounts,"date":date}
+    urlpost(ipdata,"ip")
+    urlpost(urldata,"url")
