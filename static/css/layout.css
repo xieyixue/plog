@@ -5,4 +5,8 @@
 .span8{
     float: left;
     margin-left: 10px;
+    width: 80%;
+}
+body{
+    background-color:#FFFFFF
 }

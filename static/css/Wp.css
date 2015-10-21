@@ -15,7 +15,7 @@ body{
     position: relative;
     float: left;
     width: 160px;
-    background-color: #222;
+    background-color: #101010;
 }
 
 .adminmenu{
@@ -23,7 +23,7 @@ body{
     margin: 12px 0;
     list-style: none;
     width: 160px;
-    background-color: #222;
+    background-color: #101010;
 }
 
 .menu{
