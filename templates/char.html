@@ -17,21 +17,13 @@ var data = [
 
 		{name : '{{ i.time }}',value : {{ i.count }},color:'#a5c2d5'},
     {% endfor %}
-	   	{name : '02',value : 5,color:'#cbab4f'},
-	   	{name : '03',value : 12,color:'#76a871'},
-	   	{name : '04',value : 12,color:'#76a871'},
-	   	{name : 'O',value : 15,color:'#a56f8f'},
-	   	{name : 'W',value : 13,color:'#c12c44'},
-	   	{name : 'O',value : 15,color:'#a56f8f'},
-	   	{name : 'R',value : 18,color:'#9f7961'},
-	   	{name : 'L',value : 12,color:'#76a871'},
-	   	{name : 'D',value : 4,color:'#6f83a5'}
+
 	 ];
 	 $(function(){
 		var chart = new iChart.Column2D({
 			render : 'canvasDiv',//渲染的Dom目标,canvasDiv为Dom的ID
 			data: data,//绑定数据
-			title : '流量分析图',//设置标题
+			title : '{{ date }}  每小时PV图',//设置标题
 			width : 800,//设置宽度，默认单位为px
 			height : 400,//设置高度，默认单位为px
 			shadow:true,//激活阴影

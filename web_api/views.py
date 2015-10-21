@@ -38,8 +38,20 @@ def post_ipcount(request):
         data = request.POST.get("data","")
         date = request.POST.get("date","")
         data = eval(data)
-        #print data,date
         for ip in data:
             count = data[ip]
             models.IPCount.objects.create(ip=ip,count=count,date=date)
         return HttpResponse(200)
+
+def post_pvforday(request):
+
+    if request.method == "POST":
+        data = request.POST.get("data","")
+        day = request.POST.get("day","")
+
+        data = eval(data)
+
+        for  time in data:
+
+            models.PVForDay.objects.create(date=day,time=time,count=data[time])
+    return HttpResponse(200)

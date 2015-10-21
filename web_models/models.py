@@ -28,3 +28,8 @@ class XUrlCount(models.Model):
     url = models.ForeignKey(Url)
     date = models.ForeignKey(Date)
     count = models.IntegerField()
+
+class PVForDay(models.Model):
+    count = models.IntegerField()
+    time = models.CharField(max_length=200)
+    date = models.CharField(max_length=200)
