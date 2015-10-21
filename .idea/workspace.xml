@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c6c4da5-0a30-407d-8310-058ba520a0f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/img/后台界面设计图.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/Wp.css" afterPath="$PROJECT_DIR$/static/css/Wp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ip_count_table.html" afterPath="$PROJECT_DIR$/templates/ip_count_table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/jikexuyeuan.css" afterPath="$PROJECT_DIR$/static/css/jikexuyeuan.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/layout.css" afterPath="$PROJECT_DIR$/static/css/layout.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/url_count_table.html" afterPath="$PROJECT_DIR$/templates/url_count_table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="F:\MyApp\plog\static\css\img\logo.jpg" afterPath="$PROJECT_DIR$/static/img/logo.jpg" />
+      <change type="MOVED" beforePath="F:\MyApp\plog\static\css\img\后台界面设计图.jpg" afterPath="$PROJECT_DIR$/static/img/后台界面设计图.jpg" />
     </list>
     <ignored path="plog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-13.571428">
-              <caret line="23" column="98" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="98" />
+              <caret line="23" column="94" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
               <folding />
             </state>
           </provider>
@@ -279,6 +272,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\MyApp\plog\static" />
       <recent name="F:\MyApp\plog\static\css\img" />
     </key>
   </component>
@@ -636,12 +630,17 @@
     <entry file="file://$PROJECT_DIR$/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.571428">
-          <caret line="23" column="98" selection-start-line="23" selection-start-column="98" selection-end-line="23" selection-end-column="98" />
+          <caret line="23" column="94" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/img/后台界面设计图.jpg">
+    <entry file="file://$PROJECT_DIR$/static/img/后台界面设计图.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
