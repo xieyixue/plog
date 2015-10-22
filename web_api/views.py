@@ -1,3 +1,4 @@
+#coding=utf-8
 from django.shortcuts import HttpResponse
 import json
 from web_models import models
@@ -6,19 +7,23 @@ def get_urlcount(request,day):
     ##print "------------"
     if request.method == "GET":
         data = models.UrlCount.objects.filter(date=day).values("url","count","date")
+        data_ = sorted(data,key=lambda  s: s["count"])
+        data_.reverse()
         #print data
         d = []
-        for i in data:
+        for i in data_:
             d.append(i)
         d = json.dumps(d)
+
         return HttpResponse(d)
 def get_ipcount(request,day):
     ##print "------------"
     if request.method == "GET":
         data = models.IPCount.objects.filter(date=day).values("ip","count","date")
-        #print data
+        data_ = sorted(data,key=lambda  s: s["count"])
+        data_.reverse()
         d = []
-        for i in data:
+        for i in data_:
             d.append(i)
         d = json.dumps(d)
         return HttpResponse(d)
