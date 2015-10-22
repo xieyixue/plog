@@ -1,4 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.db import models
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # Create your models here.
 class UrlCount(models.Model):
