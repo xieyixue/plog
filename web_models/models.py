@@ -33,3 +33,12 @@ class PVForDay(models.Model):
     count = models.IntegerField()
     time = models.CharField(max_length=200)
     date = models.CharField(max_length=200)
+
+class WebServer(models.Model):
+    hostname = models.CharField(max_length=200)
+    port = models.IntegerField()
+    url = models.URLField()
+    app = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return "{0} {1} {2} {3}".format(self.hostname,self.port,self.url,self.app)

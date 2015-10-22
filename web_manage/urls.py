@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
+
 from web_manage import views
+from web_manage.monitor import views as monitor
 
 urlpatterns = [
 
@@ -24,5 +25,5 @@ urlpatterns = [
     url(r'^get_urlcount/(.+)/$',views.get_urlcount),
     url(r'^get_ipcount/(.+)/$',views.get_ipcount),
     url(r'^base/',views.base),
-
+    url(r'^monitor_web',monitor.monitor_web)
 ]

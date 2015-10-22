@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block table %}
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>主机IP</th>
+            <th>服务端口</th>
+            <th>服务链接</th>
+            <th>服务项目</th>
+            <th>服务状态</th>
+        </tr>
+        <tr>
+            <td>127.0.0.1</td>
+            <td>8000</td>
+            <td><a href="http://127.0.0.1:8000">127.0.0.1:8000</a></td>
+            <td>django</td>
+            <td>200</td>
+        </tr>
+    </table>
+{% endblock %}
