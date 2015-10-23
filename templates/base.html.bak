@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/layout.css">
+    {% endblock %}
+
+{% block table %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+            {% for i in datas %}
+
+                <div class="a16"> <a href="/manage/get_urlcount/{{ i }}/">{{ i }} 日URL访问量</a></div>
+
+            {% endfor %}
+
+		</div>
+		<div class="span4">
+               {% for i in datas %}
+
+
+               <div class="a16"> <a href="/manage/get_ipcount/{{ i }}/">{{ i }} 日IP访问量</a> </div>
+            {% endfor %}
+
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+            {% for i in datas %}
+                <div class="a16"> <a href="/manage/char/{{ i }}/">{{ i }}日每小时PV图</a></div>
+            {% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+    {% block js %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+
+    {% endblock %}

@@ -19,12 +19,14 @@ def monitor_web(request):
     return render_to_response("monitor/monitor_web.html",{"data":data_})
 
 
-def get_code(d):
+def get_code(url):
 
-    url = d
-    s = urllib.urlopen(url)
-    #print s.getcode()
-    return s.getcode()
+    try:
+        s = urllib.urlopen(url)
+        code =  s.getcode()
+    except Exception,e:
+        code = "000"
+    return code
 
 class Curl(threading.Thread):
 

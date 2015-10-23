@@ -6,38 +6,30 @@
     {% endblock %}
 
 {% block table %}
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
 
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span4">
-            {% for i in datas %}
+       <table class="table table-hover table-bordered">
+        <tr>
+            <th>日期</th>
+            <th>URL访问统计</th>
+            <th>IP访问统计</th>
+            <th>PV访问统计</th>
 
-                <div> <a href="/manage/get_urlcount/{{ i }}/">{{ i }} 日URL访问量</a></div>
+        </tr>
 
-            {% endfor %}
+        {% for d in datas %}
+        <tr>
+            <td>{{ d }}</td>
+            <td><div class="a16"> <a href="/manage/get_urlcount/{{ d }}/">{{ i }} 日URL访问量</a></div></td>
+            <td><div class="a16"> <a href="/manage/get_ipcount/{{ d }}/">{{ i }} 日IP访问量</a> </div></td>
+            <td><div class="a16"> <a href="/manage/char/{{ d }}/">{{ i }}日PV图</a></div></td>
 
-		</div>
-		<div class="span4">
-               {% for i in datas %}
+
+        </tr>
+        {% endfor %}
+    </table>
 
 
-               <div> <a href="/manage/get_ipcount/{{ i }}/">{{ i }} 日IP访问量</a> </div>
-            {% endfor %}
 
-		</div>
-	</div>
-	<div class="row-fluid">
-		<div class="span12">
-            {% for i in datas %}
-                <div> <a href="/manage/char/{{ i }}/">{{ i }}日每小时PV图</a></div>
-            {% endfor %}
-		</div>
-	</div>
-</div>
 {% endblock %}
 
     {% block js %}

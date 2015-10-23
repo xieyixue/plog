@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': "plog",
         'USER':"xyx",
         'PASSWORD': "123123",
-        'HOST': "192.168.15.109",
+        'HOST': "s2.95xd.com",
     }
 }
 

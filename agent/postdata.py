@@ -50,7 +50,7 @@ def get_pvforday(logfile):
         if len(i) == 1:
             i = "0" + i
         print i
-        count=commands.getoutput("grep -c 2015\:{0} {1}".format(i,file))
+        count=commands.getoutput("grep -c 2015\:{0} {1}".format(i,logfile))
         print count
         d[i] = count
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     ipdata={"data":ipcounts,"date":date}
     urldata={"data":urlcounts,"date":date}
 
-    pvfordaydate=get_pvforday()
+    pvfordaydate=get_pvforday(logfile)
 
     urlpost(ipdata,"ipcount")
     urlpost(urldata,"urlcount")

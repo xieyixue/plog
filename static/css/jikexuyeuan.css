@@ -10,6 +10,7 @@
 li,ul,img,a,div{
     border: 0;
     list-style: none;
+
 }
 
 div{
@@ -83,6 +84,7 @@ em{
     background: #000;
 }
 
-.ue-bar-nav li a:hover{
+.ue-bar-nav li:hover{
     background: #000;
+
 }
