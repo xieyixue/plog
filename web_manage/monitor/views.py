@@ -4,11 +4,12 @@ from django.shortcuts import render_to_response
 from web_models import models
 
 import urllib
+import urllib2
 import threading
 # Create your views here.
 
 def monitor_web(request):
-    data = models.WebServer.objects.values("hostname","port","url","app")
+    data = models.Server.objects.values("ip","port","url","app")
     data_ = []
 
     for d in data:
@@ -22,8 +23,10 @@ def monitor_web(request):
 def get_code(url):
 
     try:
-        s = urllib.urlopen(url)
-        code =  s.getcode()
+        s = urllib2.urlopen(url,timeout=3)
+        code = s.getcode
+        #s = urllib.urlopen(url)
+        #code =  s.getcode()
     except Exception,e:
         code = "000"
     return code

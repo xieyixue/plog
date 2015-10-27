@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'plog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "plog",
+        'NAME': "plog2",
         'USER':"xyx",
         'PASSWORD': "123123",
         'HOST': "192.168.111.11",

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="s2.95xd.com" uploadOnCheckin="8a1e1fe3-1b67-4174-a89c-efc6658148ff">
+  <component name="PublishConfigData" autoUpload="Always" serverName="v1.95xd.com" uploadOnCheckin="8a1e1fe3-1b67-4174-a89c-efc6658148ff">
+    <serverData>
+      <paths name="v1.95xd.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/export/plog" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
     <option name="myUploadOnCheckinName" value="s2.95xd.com" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>

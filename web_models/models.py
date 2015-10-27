@@ -21,17 +21,6 @@ class IPCount(models.Model):
         return "{0} {1} {2}".format(self.ip,self.count,self.date)
 
 
-class Url(models.Model):
-    url = models.CharField(max_length=500)
-
-class Date(models.Model):
-    date = models.CharField(max_length=20)
-
-class XUrlCount(models.Model):
-
-    url = models.ForeignKey(Url)
-    date = models.ForeignKey(Date)
-    count = models.IntegerField()
 
 class PVForDay(models.Model):
     count = models.IntegerField()
@@ -46,3 +35,15 @@ class WebServer(models.Model):
 
     def __unicode__(self):
         return "{0} {1} {2} {3}".format(self.hostname,self.port,self.url,self.app)
+
+class Server(models.Model):
+    ip = models.GenericIPAddressField()
+    port = models.IntegerField(default=22)
+    app = models.CharField(max_length=22)
+    path = models.CharField(max_length=200)
+    start = models.CharField(max_length=200)
+    stop = models.CharField(max_length=200)
+    url = models.URLField(default="127.0.0.1:8080")
+
+    def __unicode__(self):
+        return "{0} {1} {2} {3} {5}".format(self.ip,self.port,self.app,self.path,self.start,self.stop)

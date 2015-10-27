@@ -44,6 +44,7 @@ def base(request):
     d = sorted(d)
     return render_to_response("base.html",{"datas":d})
 
+#日pv图
 def char(request,day):
 
     data = models.PVForDay.objects.filter(date=day).values("time","count")

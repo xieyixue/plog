@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+    {% block css %}
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/layout.css">
+    {% endblock %}
+
+{% block table %}
+
+       <table class="table table-hover table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>IP</th>
+            <th>ssh 端口</th>
+            <th>应用名称</th>
+            <th>应用路径</th>
+            <th>操作</th>
+
+        </tr>
+
+        {% for server in servers %}
+        <tr>
+            <td id="id">{{ server.id }}</td>
+            <td>{{ server.ip }}</td>
+            <td>{{ server.port }}</td>
+            <td>{{ server.app }}</td>
+            <td>{{ server.path}}</td>
+            <td>
+                <div>
+                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"start")>启动</a>
+                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"stop")>停止</a>
+                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"update")>更新</a>
+                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"rollback")>回滚</a>
+                </div>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
+
+    {% block js %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script>
+
+        function server_handle(id,handle){
+
+
+           $.ajax({
+            url:'/pubfree/server_handle/',
+            type:'POST',
+            data:{"id":id,"handle":handle},
+            success:function(arg){
+                tem = $('#error').html(arg);
+            },
+            error:function(){
+                console.log('failed')
+            }
+        });
+        }
+
+    </script>
+    {% endblock %}
