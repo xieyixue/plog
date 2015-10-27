@@ -41,7 +41,7 @@ def base(request):
     d = []
     for data in datas:
         d.append(data["date"])
-    #datas=["2015-10-16","2015-10-17","2015-10-18","2015-10-19","2015-10-20",]
+    d = sorted(d)
     return render_to_response("base.html",{"datas":d})
 
 def char(request,day):
@@ -49,20 +49,6 @@ def char(request,day):
     data = models.PVForDay.objects.filter(date=day).values("time","count")
 
     data_ = sorted(data,key=lambda  s: s["time"])
-    '''
-    _list = []
-    for i in range(00,24):
-        i = str(i)
-        if len(i) == 1:
-            i = "0" + i
-        print i
 
-        for times in data:
-            print times
-            if times["time"] == i:
-
-                _list.append(times)
-    print list
-    '''
 
     return render_to_response("char.html",{"data":data_,"date":day})
