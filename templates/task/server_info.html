@@ -7,23 +7,29 @@
 
 {% block table %}
 
+        <div id="ids">
+
+        </div>
+
+        <div >
+                <input type="text">
+        </div>
+
        <table class="table table-hover table-bordered">
         <tr>
+            <th>选中</th>
             <th>ID</th>
             <th>IP</th>
             <th>ssh 端口</th>
-
-
 
         </tr>
 
         {% for server in servers %}
         <tr>
+            <td> <input type="checkbox" onclick=""> </td>
             <td id="id">{{ server.id }}</td>
             <td>{{ server.ip }}</td>
             <td>{{ server.port }}</td>
-
-
 
         </tr>
         {% endfor %}
@@ -53,6 +59,13 @@
             }
         });
         }
+
+        function append_id(id){
+
+
+        }
+
+
 
     </script>
     {% endblock %}
