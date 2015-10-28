@@ -43,6 +43,8 @@ class Server(models.Model):
     path = models.CharField(max_length=200)
     start = models.CharField(max_length=200)
     stop = models.CharField(max_length=200)
+    update = models.CharField(max_length=200,default="git clone git@gitserver:/git.git")
+    rollback = models.CharField(max_length=200,default="git checkout .")
     url = models.URLField(default="127.0.0.1:8080")
 
     def __unicode__(self):

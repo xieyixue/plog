@@ -16,8 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from web_manage import views
-from web_api.views import post_urlcount,post_ipcount,post_pvforday
-from web_api.views import get_urlcount,get_ipcount
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
@@ -26,6 +24,6 @@ urlpatterns = [
     url('^api/',include("web_api.urls")),
     url('^manage/',include("web_manage.urls")),
     url('^pubfree/',include("web_pubfree.urls")),
-
+    url('task/',include("web_task.urls")),
 
 ]

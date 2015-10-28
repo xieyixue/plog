@@ -12,9 +12,7 @@
             <th>ID</th>
             <th>IP</th>
             <th>ssh 端口</th>
-            <th>应用名称</th>
-            <th>应用路径</th>
-            <th>操作</th>
+
 
 
         </tr>
@@ -24,17 +22,7 @@
             <td id="id">{{ server.id }}</td>
             <td>{{ server.ip }}</td>
             <td>{{ server.port }}</td>
-            <td>{{ server.app }}</td>
-            <td>{{ server.path}}</td>
-            <td>
-                <div>
-                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"start")>启动</a>
-                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"stop")>停止</a>
-                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"update")>更新</a>
-{#                    <a id={{ server.id }} href="#" onclick=server_handle(this.id,"rollback")>回滚</a>#}
 
-                </div>
-            </td>
 
 
         </tr>

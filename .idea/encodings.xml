@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/templates/ip_count_table.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/templates/url_count_table.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web_task/urls.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web_task/views.py" charset="UTF-8" />
   </component>
 </project>

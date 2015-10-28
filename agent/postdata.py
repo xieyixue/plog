@@ -3,9 +3,10 @@ import urllib
 import urllib2
 import sys
 import commands
+import time
 def urlpost(data,type):
     data = urllib.urlencode(data)
-    req = urllib2.urlopen("http://192.168.15.109:8000/api/post_{0}/".format(type),data)
+    req = urllib2.urlopen("http://192.168.111.11:80/api/post_{0}/".format(type),data)
     print req.read()
 
 
@@ -49,9 +50,9 @@ def get_pvforday(logfile):
         i = str(i)
         if len(i) == 1:
             i = "0" + i
-        print i
+        #print i
         count=commands.getoutput("grep -c 2015\:{0} {1}".format(i,logfile))
-        print count
+        #print count
         d[i] = count
 
     datas = {"data":d,"day":date}
@@ -73,5 +74,7 @@ if __name__ == "__main__":
     pvfordaydate=get_pvforday(logfile)
 
     urlpost(ipdata,"ipcount")
+    time.sleep(0.5)
     urlpost(urldata,"urlcount")
+    time.sleep(0.5)
     urlpost(pvfordaydate,"pvforday")
