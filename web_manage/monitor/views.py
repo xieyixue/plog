@@ -25,8 +25,7 @@ def get_code(url):
     try:
         s = urllib2.urlopen(url,timeout=3)
         code = s.getcode
-        #s = urllib.urlopen(url)
-        #code =  s.getcode()
+
     except Exception,e:
         code = "000"
     return code
