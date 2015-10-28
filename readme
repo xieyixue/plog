@@ -1,0 +1,7 @@
+1,
+采集服务访问日志（nginx,apache，tomcat等）
+前端图形或表格展示，暂有 日url访问统计，日IP访问统计及分时段PV图
+
+日志采集使用 agent/postdata.py 完成使用方法
+python postdata.py access_2015-10-28.log
+
