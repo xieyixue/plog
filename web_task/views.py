@@ -6,6 +6,7 @@ from web_models import models
 import threading
 import paramiko
 import Queue
+import json
 
 
 class Scmd(threading.Thread):
@@ -62,25 +63,34 @@ def server_info(request):
     return render_to_response("task/server_info.html",{"servers":servers})
 
 def cmd_run(request):
-    if request.method == "GET":
-        # ids = request.POST.get("ids","")
-        # cmd = request.POST.get("cmd","")
-        cmd = "df"
-        ids = ["192.168.111.11","192.168.111.12","192.168.111.13","192.168.111.14","192.168.111.12"]
+    if request.method == "POST":
+
+        ids = request.POST.get("ids","")
+        cmd = request.POST.get("cmd","")
+        #字符串转为列表
+        ids = eval(ids)
+        #去重
+        ids = list(set(ids))
+
+        # cmd = "df"
+        # ids = ["192.168.111.11","192.168.111.12","192.168.111.13","192.168.111.14","192.168.111.12"]
         resultQ = Queue.Queue(maxsize=0)
-        for i in ids:
-            i = Scmd(i,cmd,resultQ)
-            i.start()
+        for id in ids:
+            print id,'======='
+            ip = models.Server.objects.filter(id=id).values("ip")[0]["ip"]
+            print ip
+            id = Scmd(ip,cmd,resultQ)
+            id.start()
         count = 0
         result = ""
         while count < len(ids):
-
              if resultQ.empty():
                  pass
              else:
                  result += resultQ.get()
                  count += 1
-
+                 print(count)
+        result = result.replace("\n","<br>")
     return HttpResponse(result)
 
 

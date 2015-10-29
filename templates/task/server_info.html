@@ -3,6 +3,7 @@
     {% block css %}
         <link rel="stylesheet" href="/static/css/bootstrap.css">
         <link rel="stylesheet" href="/static/css/layout.css">
+        <link rel="stylesheet" href="/static/css/task.css">
     {% endblock %}
 
 {% block table %}
@@ -12,24 +13,25 @@
         </div>
 
         <div >
-                <input type="text">
+                <input id="cmd" type="text">
+                <input type="button" value="start" onclick="start_cmd()">
         </div>
 
-       <table class="table table-hover table-bordered">
+       <table class="table table-hover table-bordered" width="50px">
         <tr>
-            <th>选中</th>
-            <th>ID</th>
+
+
             <th>IP</th>
-            <th>ssh 端口</th>
+
 
         </tr>
 
         {% for server in servers %}
-        <tr>
-            <td> <input type="checkbox" onclick=""> </td>
-            <td id="id">{{ server.id }}</td>
+        <tr onclick="append_id({{ server.id }});">
+
+{#            <td id="id">{{ server.id }}</td>#}
             <td>{{ server.ip }}</td>
-            <td>{{ server.port }}</td>
+
 
         </tr>
         {% endfor %}
@@ -44,24 +46,34 @@
     <script src="/static/js/bootstrap.js"></script>
     <script>
 
-        function server_handle(id,handle){
+        function start_cmd(){
 
-            tem = $('#msg').html("");
+            var cmd = $('#cmd').val();
+            idss = JSON.stringify(ids);
+            ids = [];
            $.ajax({
-            url:'/pubfree/server_handle/',
+            url:'/task/cmd_run/',
             type:'POST',
-            data:{"id":id,"handle":handle},
+            data:{"ids":idss,"cmd":cmd},
+            dataType: "json",
             success:function(arg){
-                tem = $('#msg').html("操作成功!");
+                var mag = arg.responseText;
+                tem = $('#msg').html(mag);
+                console.log(arg);
+
             },
-            error:function(){
-                console.log('failed')
+            error:function(arg){
+                $('#msg').html(arg.responseText);
+                console.log(arg.responseText)
+
             }
         });
-        }
 
+        }
+        var ids = [];
         function append_id(id){
 
+            ids.push(id);
 
         }
 
