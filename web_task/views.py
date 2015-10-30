@@ -40,15 +40,19 @@ class Scmd(threading.Thread):
 
         output =  stdout.readlines()
         err    =  stderr.readlines()
-        result = str(self.ip + "\n")
+        #result = str(self.ip + "\n")
+        result = {}
+        returns = ""
         if output:
             for o in output:
-                result += o
+                returns += o
         elif err:
             for e in err:
-                result += e
+                returns += e
         else:
-            result = ""
+            returns = ""
+
+        result[self.ip] = returns
         self.result.put(result)
         #print result,"--------"
         s.close()
@@ -59,8 +63,9 @@ class Scmd(threading.Thread):
 def server_info(request):
 
     servers = models.Server.objects.values("id","ip","port")
+    servers_ = sorted(servers,key=lambda  s: s["ip"])
 
-    return render_to_response("task/server_info.html",{"servers":servers})
+    return render_to_response("task/server_info.html",{"servers":servers_})
 
 def cmd_run(request):
     if request.method == "POST":
@@ -76,22 +81,23 @@ def cmd_run(request):
         # ids = ["192.168.111.11","192.168.111.12","192.168.111.13","192.168.111.14","192.168.111.12"]
         resultQ = Queue.Queue(maxsize=0)
         for id in ids:
-            print id,'======='
             ip = models.Server.objects.filter(id=id).values("ip")[0]["ip"]
-            print ip
             id = Scmd(ip,cmd,resultQ)
             id.start()
         count = 0
-        result = ""
+        result = []
         while count < len(ids):
              if resultQ.empty():
                  pass
              else:
-                 result += resultQ.get()
+                 result.append(resultQ.get())
                  count += 1
-                 print(count)
-        result = result.replace("\n","<br>")
+
+        #result = result.replace("\n","<br>")
+        print(result)
+        result = json.dumps(result)
     return HttpResponse(result)
+    #return render_to_response("task/task_result.html",{"results":result})
 
 
 

@@ -8,9 +8,7 @@
 
 {% block table %}
 
-        <div id="ids">
 
-        </div>
 
         <div >
                 <input id="cmd" type="text">
@@ -19,24 +17,21 @@
 
        <table class="table table-hover table-bordered" width="50px">
         <tr>
-
-
             <th>IP</th>
-
-
         </tr>
 
         {% for server in servers %}
         <tr onclick="append_id({{ server.id }});">
-
-{#            <td id="id">{{ server.id }}</td>#}
             <td>{{ server.ip }}</td>
-
-
         </tr>
         {% endfor %}
     </table>
-    <div id="msg"></div>
+
+        {% for server in servers %}
+            <div>{{ server.ip }}</div>
+            <div id="{{ server.ip }}"></div>
+        {% endfor %}
+
 
 
 {% endblock %}
@@ -56,15 +51,26 @@
             type:'POST',
             data:{"ids":idss,"cmd":cmd},
             dataType: "json",
-            success:function(arg){
-                var mag = arg.responseText;
-                tem = $('#msg').html(mag);
-                console.log(arg);
+            success:function(results){
+                console.log("successful");
+                //console.log(results);
+                for (var result in results){
+
+                    for (var key in results[result]){
+                        console.log(key);
+                        console.log(results[result][key]);
+                        document.getElementById(key).innerHTML=results[result][key];
+
+                        var ss = $("#"+key).html();
+                        $("#"+key).html(results[result][key]);
+                    };
+                };
 
             },
             error:function(arg){
                 $('#msg').html(arg.responseText);
-                console.log(arg.responseText)
+                console.log(arg.responseText);
+                console.log("error");
 
             }
         });
